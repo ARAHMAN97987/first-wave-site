@@ -1,43 +1,54 @@
-# Astro Starter Kit: Minimal
+# First Wave · Laundry Advisory
 
-```sh
-npm create astro@latest -- --template minimal
+The website for **First Wave**, a hands-on industrial laundry advisory founded by Mick Connor.
+
+Positioning: vendor-neutral, operator-grade laundry advisory for commercial laundries, hotels, hospitals, airlines, and developers across the GCC and Europe.
+
+## Tech stack
+
+- [Astro](https://astro.build/) — static site framework
+- TypeScript (strict)
+- Vanilla CSS (custom design system)
+- [Inter](https://rsms.me/inter/) + [Fraunces](https://fonts.google.com/specimen/Fraunces) — via Google Fonts
+
+## Local development
+
+```bash
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Dev server runs at `http://localhost:4321`.
 
-## 🚀 Project Structure
+## Build for production
 
-Inside of your Astro project, you'll see the following folders and files:
+```bash
+npm run build
+```
 
-```text
-/
-├── public/
+Output goes to `dist/`. Deploy this folder to any static host (Vercel, Netlify, Cloudflare Pages).
+
+## Project structure
+
+```
+site/
+├── public/              # Static assets (photos, video, favicon)
+│   ├── mick.jpg         # Mick Connor hero photograph
+│   └── laundry.mp4      # Industrial laundry background video
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── layouts/
+│   │   └── Layout.astro # HTML shell + meta + fonts
+│   ├── pages/
+│   │   └── index.astro  # Homepage
+│   └── styles/
+│       └── global.css   # Design system + all styles
+└── astro.config.mjs
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Design system
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- **Primary palette**: Midnight `#050E1E`, Ink `#0A1628`, Brass `#C8985C`, Ice `#F0F4FA`
+- **Typography**: Inter (sans), Fraunces (serif accents)
+- **Voice**: First-person, direct, operator's vocabulary
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+See `Mick Connor Advisory - Final Website Plan.docx` in the project root for the full design + content brief.
