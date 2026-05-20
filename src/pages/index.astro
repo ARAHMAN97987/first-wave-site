@@ -1,0 +1,515 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <span class="logo-mark">First Wave</span>
+        <span class="logo-sub">Laundry Advisory</span>
+      </a>
+      <nav class="nav">
+        <a href="#about" class="nav-link">About Mick</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      <a href="#contact" class="nav-cta">Discuss a Project</a>
+      <button class="mobile-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+      <source src="/laundry.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-gradient"></div>
+
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="eyebrow">First Wave · Founded by Mick Connor</div>
+        <h1 class="display-xl hero-h1">30 years <span class="accent">scaling</span> industrial laundries.</h1>
+        <p class="hero-sub">From concept design to full operation and handover. Vendor-neutral. Operator-grade. On the floor, until handover.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary">Discuss a Project</a>
+          <a href="#services" class="btn btn-ghost-light">Request an Operational Review</a>
+        </div>
+      </div>
+
+      <div class="hero-photo-wrap reveal">
+        <img class="hero-photo" src="/mick.jpg" alt="Mick Connor — Founder of First Wave" />
+        <div class="hero-photo-cap">
+          <strong>Mick Connor</strong>
+          Founder · 30 years inside industrial laundries
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-hint">Scroll</div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stat-strip">
+    <div class="container">
+      <div class="stat-grid">
+        <div class="stat reveal">
+          <div class="stat-value">78,000<span class="unit">kg/day</span></div>
+          <div class="stat-label">Scaled MCL Qatar capacity for FIFA 2022</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat-value">6<span class="unit">laundries</span></div>
+          <div class="stat-label">Group Operations Director, Paragon UK</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat-value">30<span class="unit">years</span></div>
+          <div class="stat-label">Inside industrial laundries — driver to COO</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THREE NOTS -->
+  <section class="section bg-white three-nots">
+    <div class="container">
+      <div class="three-nots-head">
+        <div class="reveal">
+          <div class="eyebrow">Positioning</div>
+          <h2 class="h2">What I am not.</h2>
+        </div>
+        <p class="lead reveal">The laundry advisory market is crowded with equipment vendors with consulting arms, multi-site operators with side-consultancies, and PowerPoint-only generalists. I am structurally different.</p>
+      </div>
+      <div class="not-grid">
+        <div class="not-card reveal">
+          <div>
+            <div class="num">01</div>
+            <h3>Not a vendor.</h3>
+          </div>
+          <p>I don't sell equipment. I don't take commission from manufacturers. My recommendation on a $2M tunnel washer is not tied to the brand on the invoice.</p>
+        </div>
+        <div class="not-card reveal">
+          <div>
+            <div class="num">02</div>
+            <h3>Not a generalist consultant.</h3>
+          </div>
+          <p>30 years inside industrial laundries — and only industrial laundries. From HGV driver in 1995 to Group Operations Director, GM, and COO. I have never advised on anything else.</p>
+        </div>
+        <div class="not-card reveal">
+          <div>
+            <div class="num">03</div>
+            <h3>Not a hands-off advisor.</h3>
+          </div>
+          <p>On site, in steel-toe boots, until handover is signed. The work continues until your team is running the operation without me.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section bg-midnight process" id="services">
+    <div class="container">
+      <div class="process-head reveal">
+        <div class="eyebrow">Process</div>
+        <h2 class="h2">From planning to handover.</h2>
+        <p class="lead" style="margin-top: 32px;">Laundry projects fail when they are treated as construction projects. They are operational projects. The right capacity, the right flow, the right team — these decisions are made before the first wall is built.</p>
+      </div>
+      <div class="phase-grid">
+        <div class="phase reveal">
+          <div class="phase-num">Phase 01</div>
+          <div class="phase-title">Plan</div>
+          <p>Concept design. Capacity sizing. Operating model. Site assessment. Laundry-specific financial model. Project roadmap.</p>
+        </div>
+        <div class="phase reveal">
+          <div class="phase-num">Phase 02</div>
+          <div class="phase-title">Design</div>
+          <p>Layout and operational flow. Equipment specification and vendor-neutral evaluation. Tender specifications and supplier review.</p>
+        </div>
+        <div class="phase reveal">
+          <div class="phase-num">Phase 03</div>
+          <div class="phase-title">Build</div>
+          <p>Installation coordination. Testing and commissioning. Recruitment of senior staff. SOPs, KPIs, and team training.</p>
+        </div>
+        <div class="phase reveal">
+          <div class="phase-num">Phase 04</div>
+          <div class="phase-title">Operate</div>
+          <p>Trial operation. Live operation. Performance monitoring. Final handover with measurable controls in place.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENARIOS -->
+  <section class="section bg-white scenarios">
+    <div class="container">
+      <div class="scenarios-head">
+        <div class="reveal">
+          <div class="eyebrow">Where to Start</div>
+          <h2 class="h2">Where you are right now.</h2>
+        </div>
+        <p class="lead reveal">Different decisions need different support. Six entry points into the work — choose the one that matches where your project stands.</p>
+      </div>
+      <div class="scenario-grid">
+        <div class="scenario reveal">
+          <div class="scenario-num">01</div>
+          <div class="scenario-title">You're considering investing in a laundry.</div>
+          <p>Feasibility and capacity planning. Site assessment. Laundry-specific financial modeling. An honest answer on whether the investment makes sense.</p>
+        </div>
+        <div class="scenario reveal">
+          <div class="scenario-num">02</div>
+          <div class="scenario-title">You're designing a new facility.</div>
+          <p>Layout and operational flow. Equipment specification. Vendor-neutral tender support. CAPEX optimization before commitment.</p>
+        </div>
+        <div class="scenario reveal">
+          <div class="scenario-num">03</div>
+          <div class="scenario-title">You're building or commissioning.</div>
+          <p>Installation oversight. Commissioning support. Recruitment of senior staff. SOPs, KPIs, trial operation through handover.</p>
+        </div>
+        <div class="scenario reveal">
+          <div class="scenario-num">04</div>
+          <div class="scenario-title">Your laundry is underperforming.</div>
+          <p>90-day operational audit. Cost, productivity, and quality diagnosis. Practical improvement plan with measurable targets.</p>
+        </div>
+        <div class="scenario reveal">
+          <div class="scenario-num">05</div>
+          <div class="scenario-title">You're preparing or responding to a tender.</div>
+          <p>Technical specifications. Operational scope. Supplier evaluation. Tender risk review. Bid recommendation.</p>
+        </div>
+        <div class="scenario reveal">
+          <div class="scenario-num">06</div>
+          <div class="scenario-title">You need an interim operations leader.</div>
+          <p>Interim GM or COO engagement (6-12 months). Stabilize the operation, build the team, hand over to permanent leadership.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section class="section bg-ink industries">
+    <div class="container">
+      <div class="industries-head reveal">
+        <div class="eyebrow">Industries</div>
+        <h2 class="h2">Who I work with.</h2>
+      </div>
+      <div class="industry-list">
+        <div class="industry-row reveal">
+          <div class="industry-num">01</div>
+          <div class="industry-name">Commercial Laundries</div>
+          <div class="industry-desc">Multi-site operators serving hospitality, healthcare, industrial, and B2B contracts. Group-level operations, expansions, turnarounds.</div>
+        </div>
+        <div class="industry-row reveal">
+          <div class="industry-num">02</div>
+          <div class="industry-name">Hotels & Hospitality</div>
+          <div class="industry-desc">Hotels, resorts, and serviced apartments. Build the right OPL, or design the right central laundry strategy. Quality consistency at scale.</div>
+        </div>
+        <div class="industry-row reveal">
+          <div class="industry-num">03</div>
+          <div class="industry-name">Hospitals & Healthcare</div>
+          <div class="industry-desc">Hygienic textile processing. MOH-compliant workflow design. Healthcare-specific layout, equipment, and validation.</div>
+        </div>
+        <div class="industry-row reveal">
+          <div class="industry-num">04</div>
+          <div class="industry-name">Airlines & Aviation</div>
+          <div class="industry-desc">High-volume, time-critical laundry. In-flight textile management. Uniform processing at scale.</div>
+        </div>
+        <div class="industry-row reveal">
+          <div class="industry-num">05</div>
+          <div class="industry-name">Developers & Investors</div>
+          <div class="industry-desc">Feasibility studies. Acquisition due diligence. Expansion planning. Independent technical assessment.</div>
+        </div>
+        <div class="industry-row reveal">
+          <div class="industry-num">06</div>
+          <div class="industry-name">Entertainment & Destinations</div>
+          <div class="industry-desc">Theme parks, entertainment cities, and major mixed-use developments with high-volume laundry demand.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO BAND -->
+  <section class="video-band">
+    <div class="video-frame">
+      <video autoplay muted loop playsinline preload="metadata">
+        <source src="/laundry.mp4" type="video/mp4" />
+      </video>
+      <div class="video-overlay">
+        <div class="video-caption">
+          <div class="eyebrow">From the Floor</div>
+          <h3>Operations like the one you're building. At full throughput.</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <div class="projects-head">
+        <div class="reveal">
+          <div class="eyebrow">Selected Work</div>
+          <h2 class="h2">Three decades.<br />A few of the projects.</h2>
+        </div>
+        <p class="lead reveal">Operations, equipment delivery, turnaround work across the UK, Ireland, the GCC, and Asia.</p>
+      </div>
+      <div class="project-grid">
+        <article class="project reveal">
+          <div class="project-head">
+            <div class="project-meta">Qatar · 2020 — 2023</div>
+            <div class="project-name">MCL Qatar</div>
+            <div class="project-role">General Manager · FIFA World Cup 2022</div>
+          </div>
+          <div class="project-body">
+            <div class="project-stat-block">
+              <div class="project-stat">78,000<span class="unit">kg/day</span></div>
+              <div class="project-stat-label">Peak Daily Capacity</div>
+            </div>
+            <p>Scaled the operation from 20,000 to 78,000 kg per day in 18 months. Turned a loss-making business into bottom-line profit. Re-organized workflow, commissioned new equipment, rebuilt the team.</p>
+          </div>
+        </article>
+        <article class="project reveal">
+          <div class="project-head">
+            <div class="project-meta">United Kingdom · 2005 — 2012</div>
+            <div class="project-name">Paragon Laundry Group</div>
+            <div class="project-role">Group Operations Director · UK southwest</div>
+          </div>
+          <div class="project-body">
+            <div class="project-stat-block">
+              <div class="project-stat">6<span class="unit">laundries</span></div>
+              <div class="project-stat-label">Multi-Site P&L</div>
+            </div>
+            <p>Twelve years across six commercial laundries. Site-level linen throughput from 150K to 400K pieces/week. PPOH from 80 to 145. Senior management board member.</p>
+          </div>
+        </article>
+        <article class="project reveal">
+          <div class="project-head">
+            <div class="project-meta">London · 2012</div>
+            <div class="project-name">London 2012 Olympics</div>
+            <div class="project-role">Operations Director · NewGen</div>
+          </div>
+          <div class="project-body">
+            <div class="project-stat-block">
+              <div class="project-stat">30,000<span class="unit">garments/day</span></div>
+              <div class="project-stat-label">Peak Olympic Throughput</div>
+            </div>
+            <p>Peak operations of 30,000 garments daily plus 76,000 kg linen daily. 6-24 hour turnaround on customer-owned garments through the London Olympic Games.</p>
+          </div>
+        </article>
+      </div>
+      <a href="#" class="see-all reveal">See all projects</a>
+    </div>
+  </section>
+
+  <!-- ABOUT MICK -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-photo reveal">
+          <img src="/mick.jpg" alt="Mick Connor" />
+        </div>
+        <div class="about-text">
+          <div class="eyebrow reveal">About Mick</div>
+          <h2 class="h2 reveal">Built operator-first.<br />Delivered hands-on.</h2>
+          <p class="reveal">My experience comes from the floor up. I started as an HGV driver at Clean Linen Services in 1995. Over thirty years I moved through every role in the industry — production supervisor, plant manager, group production director, group operations director, project manager, general manager, COO.</p>
+          <p class="reveal">When I work on your project, I bring that complete operator's perspective. I know what breaks in commissioning. I know which manufacturer claims hold up under load. I know what 78,000 kg per day looks like on the floor at 4 AM during a World Cup.</p>
+          <div class="about-quote reveal">
+            <div class="serif-quote">"You don't get a deck.<br />You get the work."</div>
+            <div class="attribution">— Mick Connor</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK -->
+  <section class="section bg-white how">
+    <div class="container">
+      <div class="how-head reveal">
+        <div class="eyebrow">Engagement</div>
+        <h2 class="h2">How we work.</h2>
+      </div>
+      <div class="how-grid">
+        <div class="how-step reveal">
+          <div class="how-num">Step 01</div>
+          <div class="how-title">Discovery call</div>
+          <p>30 minutes, no cost. Tell me where the project stands. I'll tell you honestly whether I'm the right help.</p>
+        </div>
+        <div class="how-step reveal">
+          <div class="how-num">Step 02</div>
+          <div class="how-title">Diagnosis</div>
+          <p>Site visit or remote diagnostic. Understanding the operation, the constraints, and the target outcomes.</p>
+        </div>
+        <div class="how-step reveal">
+          <div class="how-num">Step 03</div>
+          <div class="how-title">Scope & engagement</div>
+          <p>Clear deliverables, timeline, and fees. Single-page agreement. No retainer creep.</p>
+        </div>
+        <div class="how-step reveal">
+          <div class="how-num">Step 04</div>
+          <div class="how-title">Delivery</div>
+          <p>On site or coordinated remote work until the agreed handover criteria are met. Weekly reporting on engagements over 4 weeks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVAILABILITY + FAQ -->
+  <section class="section bg-white faq">
+    <div class="availability-banner reveal">
+      <div class="pulse"></div>
+      <div class="text">
+        <div class="eyebrow">Currently</div>
+        <p>Accepting two to three new engagements per quarter.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="faq-head reveal">
+        <div class="eyebrow" style="margin: 0 auto 16px; display: inline-flex;">Questions</div>
+        <h2 class="h2">Frequently asked.</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">Where are you based, and how does that work?</div>
+          <div class="faq-a">Based in Spain. I travel for site work. Discovery calls and most diagnostic work happen remotely. For builds, commissioning, and turnarounds, I am on site as required by the project scope.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How long is a typical engagement?</div>
+          <div class="faq-a">Operational audits run 4-6 weeks. Feasibility studies, 6-10 weeks. New laundry setup projects, 6-18 months depending on scope. Interim management, 6-12 months.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What does it cost?</div>
+          <div class="faq-a">Engagements are scoped per project. Feasibility and audit work typically run as fixed-fee deliverables. Build and interim management are structured as retainer plus milestone-based fees. We agree everything up front, in writing.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Are you tied to any equipment brand?</div>
+          <div class="faq-a">No. I do not earn commission from any manufacturer. Equipment recommendations are based on operational fit, lifecycle cost, and serviceability — not supplier relationships.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Will you sign an NDA?</div>
+          <div class="faq-a">Yes. Standard.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Do you work alone or with a team?</div>
+          <div class="faq-a">For most diagnostic and advisory work, I work directly with the client. For build projects or interim management, I coordinate with the client's team and bring in trusted specialists when needed — electrical, MEP, software, recruitment.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-text">
+          <div class="eyebrow">Get in touch</div>
+          <h2 class="h2">Planning, building, or improving a laundry operation?</h2>
+          <p>Tell me where the project stands. I will tell you, honestly, whether I am the right help.</p>
+          <div class="contact-meta-list">
+            <div class="contact-meta">
+              <span class="contact-meta-label">Response time</span>
+              <span class="contact-meta-value">Within 2 business days</span>
+            </div>
+            <div class="contact-meta">
+              <span class="contact-meta-label">Discovery call</span>
+              <span class="contact-meta-value">30 minutes, no cost</span>
+            </div>
+            <div class="contact-meta">
+              <span class="contact-meta-label">Working hours</span>
+              <span class="contact-meta-value">Mon-Fri · UK / CET</span>
+            </div>
+            <div class="contact-meta">
+              <span class="contact-meta-label">Languages</span>
+              <span class="contact-meta-value">English</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <h3>Tell me about your project.</h3>
+          <p class="contact-form-sub">A few details. I'll come back with the right next step.</p>
+          <form>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="company">Company</label>
+              <input type="text" id="company" name="company" required />
+            </div>
+            <div class="form-group">
+              <label>Project stage</label>
+              <div class="radio-row">
+                <label><input type="radio" name="stage" value="planning" required />Planning</label>
+                <label><input type="radio" name="stage" value="building" />Building</label>
+                <label><input type="radio" name="stage" value="operating" />Operating</label>
+                <label><input type="radio" name="stage" value="improving" />Improving</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message">Brief description</label>
+              <textarea id="message" name="message" placeholder="One or two lines about your project." required></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send Project Details</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-name">First Wave</div>
+          <div class="footer-brand-sub">Laundry Advisory · Founded by Mick Connor</div>
+          <p>Hands-on industrial laundry advisory. Vendor-neutral. Operator-grade. On the floor, until handover.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Feasibility & Capacity</a></li>
+            <li><a href="#services">New Laundry Setup</a></li>
+            <li><a href="#services">Equipment & Tender</a></li>
+            <li><a href="#services">Operational Turnaround</a></li>
+            <li><a href="#services">Interim Management</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Industries</h4>
+          <ul>
+            <li><a href="#">Commercial Laundries</a></li>
+            <li><a href="#">Hotels & Hospitality</a></li>
+            <li><a href="#">Hospitals & Healthcare</a></li>
+            <li><a href="#">Airlines & Aviation</a></li>
+            <li><a href="#">Developers & Investors</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="#contact">Discuss a project</a></li>
+            <li><a href="mailto:mick@firstwave.advisory">Email</a></li>
+            <li><a href="#">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 First Wave Laundry Advisory · Founded by Mick Connor</div>
+        <div>Privacy</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile sticky CTA -->
+  <div class="mobile-cta-bar">
+    <a href="#contact" class="btn btn-primary">Discuss a Project</a>
+  </div>
+</Layout>
