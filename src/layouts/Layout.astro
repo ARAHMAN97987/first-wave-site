@@ -64,13 +64,16 @@ const {
       item.addEventListener('click', () => item.classList.toggle('open'));
     });
 
-    // Header scroll background
+    // Header switches from dark (over hero) to light (after hero)
     const header = document.querySelector('.header');
     if (header) {
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) header.classList.add('scrolled');
+      const updateHeader = () => {
+        const threshold = window.innerHeight * 0.75;
+        if (window.scrollY > threshold) header.classList.add('scrolled');
         else header.classList.remove('scrolled');
-      });
+      };
+      window.addEventListener('scroll', updateHeader, { passive: true });
+      updateHeader();
     }
   </script>
 </body>

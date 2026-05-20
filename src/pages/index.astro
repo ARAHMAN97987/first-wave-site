@@ -6,9 +6,18 @@ import Layout from '../layouts/Layout.astro';
   <!-- HEADER -->
   <header class="header">
     <div class="header-inner">
-      <a href="#" class="logo">
-        <span class="logo-mark">First Wave</span>
-        <span class="logo-sub">Laundry Advisory</span>
+      <a href="#" class="logo" aria-label="First Wave, Laundry Advisory home">
+        <svg class="logo-glyph" viewBox="0 0 32 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M2 7 C 7 1, 11 13, 16 7 S 25 13, 30 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <path d="M2 14 C 7 8, 11 20, 16 14 S 25 20, 30 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.6"/>
+          <path d="M2 21 C 7 15, 11 27, 16 21 S 25 27, 30 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.3"/>
+        </svg>
+        <span class="logo-stack">
+          <span class="logo-mark">
+            <span class="first">First</span><span class="wave">Wave</span>
+          </span>
+          <span class="logo-sub">Laundry Advisory</span>
+        </span>
       </a>
       <nav class="nav">
         <a href="#about" class="nav-link">About Mick</a>
@@ -97,7 +106,7 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- PROCESS -->
-  <section class="section bg-midnight process" id="services">
+  <section class="section process" id="services">
     <div class="container">
       <div class="process-head reveal">
         <div class="eyebrow">Process</div>
@@ -464,7 +473,14 @@ import Layout from '../layouts/Layout.astro';
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="footer-brand-name">First Wave</div>
+          <div class="footer-brand-name">
+            <svg class="footer-brand-glyph" viewBox="0 0 32 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M2 7 C 7 1, 11 13, 16 7 S 25 13, 30 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+              <path d="M2 14 C 7 8, 11 20, 16 14 S 25 20, 30 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.6"/>
+              <path d="M2 21 C 7 15, 11 27, 16 21 S 25 27, 30 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.3"/>
+            </svg>
+            <span><span class="first">First</span><span class="wave">Wave</span></span>
+          </div>
           <div class="footer-brand-sub">Laundry Advisory · Founded by Mick Connor</div>
           <p>Hands-on industrial laundry advisory. Vendor-neutral. Operator-grade. On the floor, until handover.</p>
         </div>
