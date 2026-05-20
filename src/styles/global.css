@@ -555,100 +555,121 @@ h1, h2, h3, h4 { letter-spacing: -0.03em; line-height: 1.05; }
 .industry-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 20px;
 }
 .industry-card {
-  display: flex;
-  flex-direction: column;
-  background: var(--white);
-  border: 1px solid var(--mist);
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--midnight);
   text-decoration: none;
   color: inherit;
-  overflow: hidden;
-  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 300ms ease,
-              border-color 300ms ease;
-  position: relative;
+  transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  isolation: isolate;
 }
-.industry-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 24px 60px rgba(10, 22, 40, 0.12);
-  border-color: var(--brass);
-}
-.industry-card-img {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  background: var(--ice);
-}
-.industry-card-img img {
+.industry-card:hover { transform: translateY(-4px); }
+.industry-card-bg {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+  transition: transform 1200ms cubic-bezier(0.16, 1, 0.3, 1),
+              filter 600ms ease;
+  filter: saturate(0.7);
 }
-.industry-card:hover .industry-card-img img { transform: scale(1.06); }
-.industry-card-img::after {
-  content: "";
+.industry-card:hover .industry-card-bg {
+  transform: scale(1.08);
+  filter: saturate(1);
+}
+.industry-card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 60%, rgba(10, 22, 40, 0.5) 100%);
+  z-index: 2;
+  background:
+    linear-gradient(180deg,
+      rgba(5, 14, 30, 0.55) 0%,
+      rgba(5, 14, 30, 0.78) 55%,
+      rgba(5, 14, 30, 0.94) 100%),
+    rgba(10, 22, 40, 0.25);
+  transition: opacity 500ms ease;
   pointer-events: none;
 }
+.industry-card:hover .industry-card-overlay { opacity: 0.7; }
+.industry-card-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  color: var(--white);
+}
 .industry-card-num {
-  position: absolute;
-  top: 16px;
-  left: 16px;
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 14px;
-  color: var(--white);
-  z-index: 2;
-  background: rgba(5, 14, 30, 0.55);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: 6px 12px;
-  border-left: 2px solid var(--brass);
+  color: var(--brass);
+  letter-spacing: 0.02em;
+  margin-bottom: auto;
 }
-.industry-card-body {
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+.industry-card-bottom {
+  position: relative;
+  transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+.industry-card:hover .industry-card-bottom {
+  transform: translateY(-12px);
 }
 .industry-card-name {
-  font-size: 24px;
+  font-size: clamp(22px, 2vw, 28px);
   font-weight: 700;
-  color: var(--ink);
   letter-spacing: -0.02em;
   line-height: 1.15;
-  margin-bottom: 12px;
+  color: var(--white);
+}
+.industry-card-name::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--brass);
+  margin-top: 14px;
+  transition: width 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.industry-card:hover .industry-card-name::after { width: 64px; }
+.industry-card-detail {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 500ms cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 400ms ease 150ms;
+}
+.industry-card:hover .industry-card-detail {
+  max-height: 200px;
+  opacity: 1;
 }
 .industry-card-desc {
   font-size: 14px;
   line-height: 1.6;
-  color: var(--steel);
-  flex: 1;
-  margin-bottom: 24px;
+  color: rgba(255, 255, 255, 0.82);
+  margin-top: 16px;
 }
 .industry-card-cta {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-size: 13px;
+  margin-top: 20px;
+  font-size: 11px;
   font-weight: 600;
-  color: var(--brass);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  padding-top: 16px;
-  border-top: 1px solid var(--mist);
-  transition: gap 300ms ease;
+  color: var(--brass);
 }
-.industry-card:hover .industry-card-cta { gap: 14px; }
 .industry-card-cta::after {
   content: "→";
-  font-size: 16px;
+  font-size: 14px;
   transition: transform 300ms ease;
 }
 .industry-card:hover .industry-card-cta::after { transform: translateX(4px); }
