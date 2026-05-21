@@ -479,6 +479,17 @@ h1, h2, h3, h4 { letter-spacing: -0.03em; line-height: 1.05; }
   line-height: 1;
 }
 .phase p { font-size: 15px; line-height: 1.55; color: var(--steel); }
+.method-footnote {
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(10, 22, 40, 0.08);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(16px, 1.5vw, 20px);
+  color: var(--steel);
+  text-align: center;
+  letter-spacing: -0.005em;
+}
 
 /* ====== SCENARIOS ====== */
 .scenarios .container { max-width: 1280px; }
