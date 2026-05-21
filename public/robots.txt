@@ -1,5 +1,5 @@
 # First Wave Laundry Advisory · robots.txt
-# https://firstwave.advisory
+# https://firstwavelaundry.com
 
 User-agent: *
 Allow: /
@@ -18,4 +18,4 @@ User-agent: DotBot
 Disallow: /
 
 # Sitemap
-Sitemap: https://firstwave.advisory/sitemap-index.xml
+Sitemap: https://firstwavelaundry.com/sitemap-index.xml

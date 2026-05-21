@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://firstwave.advisory',
+  site: 'https://firstwavelaundry.com',
   integrations: [
     sitemap({
       changefreq: 'weekly',
