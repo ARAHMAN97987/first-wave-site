@@ -34,7 +34,16 @@ import Layout from '../layouts/Layout.astro';
 
   <!-- HERO -->
   <section class="hero">
-    <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+    <video
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="/laundry-poster.jpg"
+      aria-hidden="true"
+    >
       <source src="/laundry.mp4" type="video/mp4" />
     </video>
     <div class="hero-gradient"></div>
@@ -291,7 +300,15 @@ import Layout from '../layouts/Layout.astro';
   <!-- VIDEO BAND -->
   <section class="video-band">
     <div class="video-frame">
-      <video autoplay muted loop playsinline preload="metadata">
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="none"
+        poster="/laundry-poster.jpg"
+        aria-hidden="true"
+      >
         <source src="/laundry.mp4" type="video/mp4" />
       </video>
       <div class="video-overlay">
@@ -472,27 +489,27 @@ import Layout from '../layouts/Layout.astro';
         <h2 class="h2">Frequently asked.</h2>
       </div>
       <div class="faq-list">
-        <div class="faq-item">
+        <div class="faq-item" role="button" tabindex="0" aria-expanded="false">
           <div class="faq-q">Where are you based, and how does that work?</div>
           <div class="faq-a">Based in Spain. I travel for site work. Discovery calls and most diagnostic work happen remotely. For builds, commissioning, and turnarounds, I am on site as required by the project scope.</div>
         </div>
-        <div class="faq-item">
+        <div class="faq-item" role="button" tabindex="0" aria-expanded="false">
           <div class="faq-q">How long is a typical engagement?</div>
           <div class="faq-a">Operational audits run 4-6 weeks. Feasibility studies, 6-10 weeks. New laundry setup projects, 6-18 months depending on scope. Interim management, 6-12 months.</div>
         </div>
-        <div class="faq-item">
+        <div class="faq-item" role="button" tabindex="0" aria-expanded="false">
           <div class="faq-q">What does it cost?</div>
           <div class="faq-a">Engagements are scoped per project. Feasibility and audit work typically run as fixed-fee deliverables. Build and interim management are structured as retainer plus milestone-based fees. We agree everything up front, in writing.</div>
         </div>
-        <div class="faq-item">
+        <div class="faq-item" role="button" tabindex="0" aria-expanded="false">
           <div class="faq-q">Are you tied to any equipment brand?</div>
           <div class="faq-a">No. I do not earn commission from any manufacturer. Equipment recommendations are based on operational fit, lifecycle cost, and serviceability — not supplier relationships.</div>
         </div>
-        <div class="faq-item">
+        <div class="faq-item" role="button" tabindex="0" aria-expanded="false">
           <div class="faq-q">Will you sign an NDA?</div>
           <div class="faq-a">Yes. Standard.</div>
         </div>
-        <div class="faq-item">
+        <div class="faq-item" role="button" tabindex="0" aria-expanded="false">
           <div class="faq-q">Do you work alone or with a team?</div>
           <div class="faq-a">For most diagnostic and advisory work, I work directly with the client. For build projects or interim management, I coordinate with the client's team and bring in trusted specialists when needed — electrical, MEP, software, recruitment.</div>
         </div>

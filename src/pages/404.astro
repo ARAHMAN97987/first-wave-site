@@ -1,0 +1,93 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Page Not Found · First Wave"
+  description="The page you're looking for has moved or doesn't exist. Return to First Wave Laundry Advisory."
+>
+  <div class="error-page">
+    <div class="error-inner">
+      <div class="eyebrow">404</div>
+      <h1 class="display-l">This page is off-shift.</h1>
+      <p class="lead">
+        The page you're looking for has moved or doesn't exist. Use the link below to return to
+        the floor.
+      </p>
+      <div class="error-cta">
+        <a href="/" class="btn btn-primary">Back to home</a>
+        <a href="/#contact" class="btn btn-ghost-light">Discuss a project</a>
+      </div>
+      <div class="error-footnote">
+        <p>If you arrived here from a link, kindly let me know where it pointed.</p>
+        <p><a href="mailto:mick@firstwave.advisory">mick@firstwave.advisory</a></p>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .error-page {
+    min-height: 100vh;
+    background: var(--midnight);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .error-page::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(200, 152, 92, 0.12), transparent 70%);
+    pointer-events: none;
+  }
+  .error-inner {
+    position: relative;
+    max-width: 720px;
+    text-align: center;
+  }
+  .error-inner .eyebrow {
+    color: var(--brass);
+    margin: 0 auto 24px;
+    display: inline-flex;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+  }
+  .error-inner .display-l {
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+  .error-inner .lead {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 48px;
+  }
+  .error-cta {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 80px;
+  }
+  .error-footnote {
+    padding-top: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .error-footnote a {
+    color: var(--brass);
+  }
+  .error-footnote a:hover {
+    color: var(--white);
+  }
+  .error-footnote p {
+    margin-bottom: 8px;
+  }
+</style>

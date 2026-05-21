@@ -1,3 +1,7 @@
+/* ====== SELF-HOSTED VARIABLE FONTS ====== */
+@import '@fontsource-variable/inter/wght.css';
+@import '@fontsource-variable/fraunces/wght-italic.css';
+
 /* ====== DESIGN TOKENS ====== */
 :root {
   --midnight: #050E1E;
@@ -14,11 +18,43 @@
   --grey-mid: #5C6470;
   --grey-light: #8A929C;
 
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter Variable', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Fraunces Variable', 'Fraunces', Georgia, 'Times New Roman', serif;
 
   --max: 1400px;
   --pad: 120px;
+}
+
+/* ====== SKIP LINK (a11y) ====== */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 1000;
+  background: var(--brass);
+  color: var(--white);
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: top 200ms ease;
+}
+.skip-link:focus {
+  top: 16px;
+  outline: 2px solid var(--white);
+  outline-offset: 2px;
+}
+
+/* ====== FOCUS STYLES (a11y) ====== */
+:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+.industry-card:focus-visible,
+.btn:focus-visible {
+  outline-offset: 4px;
 }
 
 /* ====== RESET ====== */

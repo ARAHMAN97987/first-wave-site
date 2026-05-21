@@ -4,77 +4,270 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  ogImage?: string;
+  pathname?: string;
 }
 
+const SITE_URL = 'https://firstwave.advisory';
+const DEFAULT_TITLE = 'First Wave · Laundry Advisory by Mick Connor';
+const DEFAULT_DESCRIPTION =
+  '30 years of hands-on industrial laundry experience. Vendor-neutral feasibility, new builds, operational turnarounds, and interim management for commercial laundries, hotels, hospitals, airlines, and developers across the GCC and Europe.';
+const DEFAULT_OG = '/og-image.png';
+
 const {
-  title = "First Wave · Laundry Advisory by Mick Connor",
-  description = "30 years of hands-on industrial laundry experience. Feasibility, new builds, operational turnarounds, and interim management for commercial laundries, hotels, hospitals, and airlines."
+  title = DEFAULT_TITLE,
+  description = DEFAULT_DESCRIPTION,
+  ogImage = DEFAULT_OG,
+  pathname = Astro.url.pathname,
 } = Astro.props;
+
+const canonical = new URL(pathname, SITE_URL).toString();
+const absoluteOg = ogImage.startsWith('http') ? ogImage : new URL(ogImage, SITE_URL).toString();
+
+// JSON-LD structured data
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Michael Connor',
+  alternateName: 'Mick Connor',
+  jobTitle: 'Industrial Laundry Operations Advisor',
+  description:
+    '30 years inside industrial laundries — from HGV driver to COO. Founder of First Wave Laundry Advisory.',
+  image: new URL('/mick.png', SITE_URL).toString(),
+  url: SITE_URL,
+  worksFor: {
+    '@type': 'Organization',
+    name: 'First Wave Laundry Advisory',
+    url: SITE_URL,
+  },
+  alumniOf: [
+    { '@type': 'Organization', name: 'Lavndry Group' },
+    { '@type': 'Organization', name: 'MCL Qatar' },
+    { '@type': 'Organization', name: 'Jensen Group' },
+    { '@type': 'Organization', name: 'Paragon Laundry Group' },
+    { '@type': 'Organization', name: 'NewGen Business Services' },
+    { '@type': 'Organization', name: 'Clean Linen Services' },
+  ],
+  knowsAbout: [
+    'Industrial laundry operations',
+    'Central laundry design',
+    'Tunnel washer systems',
+    'Laundry capacity planning',
+    'Commercial laundry tenders',
+    'Operational turnaround',
+    'Equipment commissioning',
+    'Vendor-neutral advisory',
+  ],
+};
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': SITE_URL + '#org',
+  name: 'First Wave Laundry Advisory',
+  alternateName: 'First Wave',
+  url: SITE_URL,
+  logo: new URL('/og-image.png', SITE_URL).toString(),
+  image: new URL('/og-image.png', SITE_URL).toString(),
+  description: DEFAULT_DESCRIPTION,
+  founder: {
+    '@type': 'Person',
+    name: 'Michael Connor',
+  },
+  foundingDate: '2024',
+  areaServed: [
+    { '@type': 'Country', name: 'Saudi Arabia' },
+    { '@type': 'Country', name: 'United Arab Emirates' },
+    { '@type': 'Country', name: 'Qatar' },
+    { '@type': 'Country', name: 'Kuwait' },
+    { '@type': 'Country', name: 'Bahrain' },
+    { '@type': 'Country', name: 'Oman' },
+    { '@type': 'Country', name: 'United Kingdom' },
+    { '@type': 'Country', name: 'Ireland' },
+  ],
+  serviceType: [
+    'Laundry Feasibility & Capacity Planning',
+    'New Laundry Setup',
+    'Equipment & Tender Advisory',
+    'Operational Turnaround',
+    'Interim Management',
+  ],
+  knowsAbout: [
+    'Industrial laundry operations',
+    'Central laundry design',
+    'Hotel and hospitality laundry',
+    'Healthcare laundry compliance',
+    'Airline laundry operations',
+    'Commercial laundry economics',
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Where are you based, and how does that work?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text:
+          'Based in Spain. I travel for site work. Discovery calls and most diagnostic work happen remotely. For builds, commissioning, and turnarounds, I am on site as required by the project scope.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How long is a typical engagement?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text:
+          'Operational audits run 4-6 weeks. Feasibility studies, 6-10 weeks. New laundry setup projects, 6-18 months depending on scope. Interim management, 6-12 months.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are you tied to any equipment brand?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text:
+          'No. I do not earn commission from any manufacturer. Equipment recommendations are based on operational fit, lifecycle cost, and serviceability — not supplier relationships.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Will you sign an NDA?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Standard.',
+      },
+    },
+  ],
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: SITE_URL,
+    },
+  ],
+};
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="generator" content={Astro.generator} />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#050E1E" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#FAFAF7" media="(prefers-color-scheme: light)" />
 
-  <title>{title}</title>
-  <meta name="description" content={description} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
-  <meta property="og:image" content="/mick.png" />
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content="/mick.png" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="First Wave Laundry Advisory" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={absoluteOg} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="First Wave Laundry Advisory — Mick Connor" />
+    <meta property="og:locale" content="en_US" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap"
-    rel="stylesheet"
-  />
-</head>
-<body>
-  <slot />
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={absoluteOg} />
+    <meta name="twitter:image:alt" content="First Wave Laundry Advisory — Mick Connor" />
 
-  <script>
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer.unobserve(entry.target);
-        }
+    <!-- Robots -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="googlebot" content="index, follow" />
+
+    <!-- Author -->
+    <meta name="author" content="Mick Connor" />
+
+    <!-- Preload hero assets for LCP -->
+    <link rel="preload" as="image" href="/mick.png" fetchpriority="high" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+    <!-- Plausible analytics (privacy-respecting, no cookies) -->
+    <script
+      defer
+      data-domain="firstwave.advisory"
+      src="https://plausible.io/js/script.outbound-links.js"
+    ></script>
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <main id="main">
+      <slot />
+    </main>
+
+    <script>
+      // Scroll reveal
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: '0px 0px -8% 0px' }
+      );
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+      // FAQ accordion + aria-expanded sync
+      document.querySelectorAll('.faq-item').forEach((item) => {
+        const toggle = () => {
+          const open = item.classList.toggle('open');
+          item.setAttribute('aria-expanded', open ? 'true' : 'false');
+        };
+        item.addEventListener('click', toggle);
+        item.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggle();
+          }
+        });
       });
-    }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // FAQ accordion
-    document.querySelectorAll('.faq-item').forEach(item => {
-      item.addEventListener('click', () => item.classList.toggle('open'));
-    });
-
-    // Header switches from dark (over hero) to light (after hero)
-    const header = document.querySelector('.header');
-    if (header) {
-      const updateHeader = () => {
-        const threshold = window.innerHeight * 0.75;
-        if (window.scrollY > threshold) header.classList.add('scrolled');
-        else header.classList.remove('scrolled');
-      };
-      window.addEventListener('scroll', updateHeader, { passive: true });
-      updateHeader();
-    }
-  </script>
-</body>
+      // Header: dark over hero, light after hero
+      const header = document.querySelector('.header');
+      if (header) {
+        const updateHeader = () => {
+          const threshold = window.innerHeight * 0.75;
+          if (window.scrollY > threshold) header.classList.add('scrolled');
+          else header.classList.remove('scrolled');
+        };
+        window.addEventListener('scroll', updateHeader, { passive: true });
+        updateHeader();
+      }
+    </script>
+  </body>
 </html>
