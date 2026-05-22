@@ -268,6 +268,61 @@ const breadcrumbSchema = {
         window.addEventListener('scroll', updateHeader, { passive: true });
         updateHeader();
       }
+
+      // Mobile drawer
+      const drawer = document.getElementById('mobile-drawer');
+      const backdrop = document.querySelector('.mobile-drawer-backdrop');
+      const toggle = document.querySelector('.mobile-toggle');
+
+      const openDrawer = () => {
+        if (!drawer || !backdrop || !toggle) return;
+        drawer.classList.add('open');
+        backdrop.classList.add('open');
+        document.body.classList.add('drawer-open');
+        header && header.classList.add('drawer-open');
+        drawer.setAttribute('aria-hidden', 'false');
+        toggle.setAttribute('aria-expanded', 'true');
+        toggle.setAttribute('aria-label', 'Close menu');
+      };
+      const closeDrawer = () => {
+        if (!drawer || !backdrop || !toggle) return;
+        drawer.classList.remove('open');
+        backdrop.classList.remove('open');
+        document.body.classList.remove('drawer-open');
+        header && header.classList.remove('drawer-open');
+        drawer.setAttribute('aria-hidden', 'true');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open menu');
+      };
+
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          if (drawer && drawer.classList.contains('open')) closeDrawer();
+          else openDrawer();
+        });
+      }
+
+      document.querySelectorAll('[data-close-drawer]').forEach((el) => {
+        el.addEventListener('click', closeDrawer);
+      });
+
+      // Close drawer on Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && drawer && drawer.classList.contains('open')) {
+          closeDrawer();
+        }
+      });
+
+      // Industry cards: tap to toggle on touch devices (in addition to always-visible CSS)
+      const isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+      if (isTouch) {
+        document.querySelectorAll('.industry-card').forEach((card) => {
+          card.addEventListener('click', (e) => {
+            // Allow normal navigation by default; this is just for any pre-tap UX
+            card.classList.add('tapped');
+          });
+        });
+      }
     </script>
   </body>
 </html>

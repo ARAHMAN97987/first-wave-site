@@ -26,11 +26,41 @@ import Layout from '../layouts/Layout.astro';
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
       <a href="#contact" class="nav-cta">Discuss a Project</a>
-      <button class="mobile-toggle" aria-label="Menu">
+      <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
+
+  <!-- MOBILE DRAWER -->
+  <aside id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer-inner">
+      <nav class="mobile-nav" aria-label="Mobile">
+        <a href="#about" class="mobile-nav-link" data-close-drawer>
+          <span class="mobile-nav-num">01</span>
+          <span class="mobile-nav-label">About Mick</span>
+        </a>
+        <a href="#services" class="mobile-nav-link" data-close-drawer>
+          <span class="mobile-nav-num">02</span>
+          <span class="mobile-nav-label">Services</span>
+        </a>
+        <a href="#projects" class="mobile-nav-link" data-close-drawer>
+          <span class="mobile-nav-num">03</span>
+          <span class="mobile-nav-label">Projects</span>
+        </a>
+        <a href="#contact" class="mobile-nav-link" data-close-drawer>
+          <span class="mobile-nav-num">04</span>
+          <span class="mobile-nav-label">Contact</span>
+        </a>
+      </nav>
+      <a href="#contact" class="mobile-drawer-cta btn btn-primary" data-close-drawer>Discuss a Project</a>
+      <div class="mobile-drawer-foot">
+        <div class="mobile-drawer-meta">Founded by Mick Connor</div>
+        <a href="mailto:mick@firstwavelaundry.com" class="mobile-drawer-email">mick@firstwavelaundry.com</a>
+      </div>
+    </div>
+  </aside>
+  <div class="mobile-drawer-backdrop" data-close-drawer></div>
 
   <!-- HERO -->
   <section class="hero">
