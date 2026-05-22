@@ -1,0 +1,323 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { industries, type Industry } from '../../data/industries';
+
+export function getStaticPaths() {
+  return industries.map((industry) => ({
+    params: { slug: industry.slug },
+    props: { industry },
+  }));
+}
+
+interface Props { industry: Industry; }
+const { industry } = Astro.props;
+---
+
+<Layout
+  title={industry.meta.title}
+  description={industry.meta.description}
+  ogImage={industry.imageUrl}
+  pathname={`/industries/${industry.slug}/`}
+>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="/" class="logo" aria-label="First Wave, Laundry Advisory home">
+        <svg class="logo-glyph" viewBox="0 0 32 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M2 7 C 7 1, 11 13, 16 7 S 25 13, 30 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <path d="M2 14 C 7 8, 11 20, 16 14 S 25 20, 30 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.6"/>
+          <path d="M2 21 C 7 15, 11 27, 16 21 S 25 27, 30 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.3"/>
+        </svg>
+        <span class="logo-stack">
+          <span class="logo-mark">
+            <span class="first">First</span><span class="wave">Wave</span>
+          </span>
+          <span class="logo-sub">Laundry Advisory</span>
+        </span>
+      </a>
+      <nav class="nav">
+        <a href="/#about" class="nav-link">About Mick</a>
+        <a href="/#services" class="nav-link">Services</a>
+        <a href="/#projects" class="nav-link">Projects</a>
+        <a href={`#contact-${industry.slug}`} class="nav-link">Contact</a>
+      </nav>
+      <a href={`#contact-${industry.slug}`} class="nav-cta">Discuss a Project</a>
+      <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <aside id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer-inner">
+      <nav class="mobile-nav" aria-label="Mobile">
+        <a href="/" class="mobile-nav-link" data-close-drawer>
+          <span class="mobile-nav-num">00</span>
+          <span class="mobile-nav-label">Home</span>
+        </a>
+        <a href="/#about" class="mobile-nav-link" data-close-drawer>
+          <span class="mobile-nav-num">01</span>
+          <span class="mobile-nav-label">About Mick</span>
+        </a>
+        <a href="/#services" class="mobile-nav-link" data-close-drawer>
+          <span class="mobile-nav-num">02</span>
+          <span class="mobile-nav-label">Services</span>
+        </a>
+        <a href="/#projects" class="mobile-nav-link" data-close-drawer>
+          <span class="mobile-nav-num">03</span>
+          <span class="mobile-nav-label">Projects</span>
+        </a>
+        <a href={`#contact-${industry.slug}`} class="mobile-nav-link" data-close-drawer>
+          <span class="mobile-nav-num">04</span>
+          <span class="mobile-nav-label">Contact</span>
+        </a>
+      </nav>
+      <a href={`#contact-${industry.slug}`} class="mobile-drawer-cta btn btn-primary" data-close-drawer>Discuss a Project</a>
+      <div class="mobile-drawer-foot">
+        <div class="mobile-drawer-meta">Founded by Mick Connor</div>
+        <a href="mailto:mick@firstwavelaundry.com" class="mobile-drawer-email">mick@firstwavelaundry.com</a>
+      </div>
+    </div>
+  </aside>
+  <div class="mobile-drawer-backdrop" data-close-drawer></div>
+
+  <!-- INDUSTRY HERO -->
+  <section class="industry-hero">
+    <img class="industry-hero-bg" src={industry.imageUrl} alt="" loading="eager" fetchpriority="high" />
+    <div class="industry-hero-overlay"></div>
+    <div class="industry-hero-inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="/#industries">Industries</a>
+        <span class="breadcrumb-sep">›</span>
+        <span aria-current="page">{industry.name}</span>
+      </nav>
+
+      <div class="industry-hero-content">
+        <div class="industry-hero-eyebrow">Industry · {industry.number}</div>
+        <h1 class="display-l industry-hero-h1">{industry.name}</h1>
+        <p class="industry-hero-tag">{industry.heroTagline}</p>
+        <p class="industry-hero-sub">{industry.heroSubline}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- UNDERSTANDING -->
+  <section class="section bg-white industry-section understanding-section">
+    <div class="container">
+      <div class="industry-section-head">
+        <div class="eyebrow">What I see in this sector</div>
+        <h2 class="h2">A clear-eyed read on how this business actually runs.</h2>
+      </div>
+      <div class="understanding-body">
+        {industry.understanding.map((para) => (
+          <p class="understanding-para">{para}</p>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PAIN POINTS -->
+  <section class="section bg-ice industry-section pain-section">
+    <div class="container">
+      <div class="industry-section-head">
+        <div class="eyebrow">Where projects struggle</div>
+        <h2 class="h2">Four problems I keep seeing.</h2>
+      </div>
+      <div class="pain-grid">
+        {industry.painPoints.map((pain, i) => (
+          <article class="pain-card">
+            <div class="pain-num">0{i + 1}</div>
+            <h3 class="pain-title">{pain.title}</h3>
+            <p class="pain-desc">{pain.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW I HELP -->
+  <section class="section bg-white industry-section help-section">
+    <div class="container">
+      <div class="industry-section-head">
+        <div class="eyebrow">How I help</div>
+        <h2 class="h2">Specifically for {industry.shortName.toLowerCase()}.</h2>
+      </div>
+      <div class="help-list">
+        {industry.helps.map((h, i) => (
+          <article class="help-item">
+            <div class="help-num">0{i + 1}</div>
+            <div class="help-body">
+              <h3 class="help-title">{h.title}</h3>
+              <p class="help-desc">{h.description}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- RELEVANT PROJECTS -->
+  <section class="section bg-ice industry-section projects-section">
+    <div class="container">
+      <div class="industry-section-head">
+        <div class="eyebrow">Relevant work</div>
+        <h2 class="h2">Projects that gave me the reps.</h2>
+      </div>
+      <div class="project-grid">
+        {industry.projects.map((p) => (
+          <article class="project">
+            <div class="project-head">
+              <div class="project-meta">{p.meta}</div>
+              <div class="project-name">{p.name}</div>
+            </div>
+            <div class="project-body">
+              <div class="project-stat-block">
+                <div class="project-stat">{p.stat}</div>
+                <div class="project-stat-label">{p.statLabel}</div>
+              </div>
+              <p>{p.description}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRY-SPECIFIC CONTACT FORM -->
+  <section class="section contact" id={`contact-${industry.slug}`}>
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-text">
+          <div class="eyebrow">Get in touch</div>
+          <h2 class="h2">Tell me about your {industry.shortName.toLowerCase()} project.</h2>
+          <p>{industry.formPrompt}</p>
+          <div class="contact-meta-list">
+            <div class="contact-meta">
+              <span class="contact-meta-label">Response time</span>
+              <span class="contact-meta-value">Within 2 business days</span>
+            </div>
+            <div class="contact-meta">
+              <span class="contact-meta-label">Discovery call</span>
+              <span class="contact-meta-value">30 minutes, no cost</span>
+            </div>
+            <div class="contact-meta">
+              <span class="contact-meta-label">Sector</span>
+              <span class="contact-meta-value">{industry.name}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <h3>Tell me about your project.</h3>
+          <p class="contact-form-sub">{industry.formPrompt}</p>
+          <form>
+            <input type="hidden" name="industry" value={industry.slug} />
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="company">Company / Project</label>
+              <input type="text" id="company" name="company" required />
+            </div>
+            <div class="form-group">
+              <label>Project stage</label>
+              <div class="radio-row">
+                <label><input type="radio" name="stage" value="planning" required />Planning</label>
+                <label><input type="radio" name="stage" value="building" />Building</label>
+                <label><input type="radio" name="stage" value="operating" />Operating</label>
+                <label><input type="radio" name="stage" value="improving" />Improving</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message">Brief description</label>
+              <textarea id="message" name="message" placeholder={industry.formPrompt} required></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send Project Details</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER INDUSTRIES -->
+  <section class="section bg-white other-industries">
+    <div class="container">
+      <div class="industry-section-head" style="text-align:center;">
+        <div class="eyebrow" style="display:inline-flex; margin:0 auto 16px;">Other industries</div>
+        <h2 class="h2">Different sector, similar discipline.</h2>
+      </div>
+      <div class="other-grid">
+        {industries.filter(i => i.slug !== industry.slug).map((other) => (
+          <a href={`/industries/${other.slug}/`} class="other-card">
+            <span class="other-num">{other.number}</span>
+            <span class="other-name">{other.name}</span>
+            <span class="other-arrow">→</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-name">
+            <svg class="footer-brand-glyph" viewBox="0 0 32 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M2 7 C 7 1, 11 13, 16 7 S 25 13, 30 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+              <path d="M2 14 C 7 8, 11 20, 16 14 S 25 20, 30 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.6"/>
+              <path d="M2 21 C 7 15, 11 27, 16 21 S 25 27, 30 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.3"/>
+            </svg>
+            <span><span class="first">First</span><span class="wave">Wave</span></span>
+          </div>
+          <div class="footer-brand-sub">Laundry Advisory · Founded by Mick Connor</div>
+          <p>Hands-on industrial laundry advisory. Vendor-neutral. Operator-grade. On the floor, until handover.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Industries</h4>
+          <ul>
+            {industries.map((i) => (
+              <li><a href={`/industries/${i.slug}/`}>{i.name}</a></li>
+            ))}
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/#services">Feasibility & Capacity</a></li>
+            <li><a href="/#services">New Laundry Setup</a></li>
+            <li><a href="/#services">Equipment & Tender</a></li>
+            <li><a href="/#services">Operational Turnaround</a></li>
+            <li><a href="/#services">Interim Management</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href={`#contact-${industry.slug}`}>Discuss this project</a></li>
+            <li><a href="mailto:mick@firstwavelaundry.com">Email</a></li>
+            <li><a href="#">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 First Wave Laundry Advisory · Founded by Mick Connor</div>
+        <div>Privacy</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile sticky CTA -->
+  <div class="mobile-cta-bar">
+    <a href={`#contact-${industry.slug}`} class="btn btn-primary">Discuss a Project</a>
+  </div>
+</Layout>

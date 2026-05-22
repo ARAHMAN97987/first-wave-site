@@ -1207,6 +1207,261 @@ h1, h2, h3, h4 { letter-spacing: -0.03em; line-height: 1.05; }
 }
 .mobile-cta-bar .btn { width: 100%; justify-content: center; }
 
+/* ====== INDUSTRY PAGES ====== */
+
+.industry-hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--midnight);
+  color: var(--white);
+}
+.industry-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  filter: saturate(0.7);
+}
+.industry-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(180deg, rgba(5, 14, 30, 0.55) 0%, rgba(5, 14, 30, 0.78) 50%, rgba(5, 14, 30, 0.92) 100%),
+    rgba(10, 22, 40, 0.2);
+}
+.industry-hero-inner {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 160px 48px 80px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 56px;
+}
+.breadcrumb a {
+  color: rgba(255, 255, 255, 0.85);
+  transition: color 200ms ease;
+}
+.breadcrumb a:hover { color: var(--brass); }
+.breadcrumb-sep {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 12px;
+}
+.breadcrumb [aria-current="page"] {
+  color: var(--brass);
+  font-weight: 500;
+}
+
+.industry-hero-content { max-width: 880px; }
+.industry-hero-eyebrow {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--brass);
+  letter-spacing: 0.02em;
+  margin-bottom: 24px;
+}
+.industry-hero-h1 {
+  color: var(--white);
+  margin-bottom: 32px;
+}
+.industry-hero-tag {
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  max-width: 760px;
+}
+.industry-hero-sub {
+  font-size: clamp(16px, 1.4vw, 19px);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 720px;
+}
+
+.industry-section .container { max-width: 1200px; }
+.industry-section-head {
+  max-width: 760px;
+  margin-bottom: 64px;
+}
+.industry-section-head .h2 { color: var(--ink); margin-top: 16px; }
+.bg-ice.industry-section .industry-section-head .h2,
+.bg-white.industry-section .industry-section-head .h2 { color: var(--ink); }
+
+.understanding-body {
+  max-width: 760px;
+}
+.understanding-para {
+  font-size: clamp(17px, 1.4vw, 20px);
+  line-height: 1.7;
+  color: var(--steel);
+  margin-bottom: 24px;
+}
+.understanding-para:last-child { margin-bottom: 0; }
+.understanding-para:first-letter {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--brass);
+  font-size: 1.3em;
+  line-height: 1;
+}
+
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.pain-card {
+  background: var(--white);
+  border: 1px solid var(--mist);
+  padding: 36px;
+  position: relative;
+  border-radius: 0;
+}
+.pain-num {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--brass);
+  line-height: 1;
+  margin-bottom: 24px;
+}
+.pain-title {
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.015em;
+  margin-bottom: 14px;
+  line-height: 1.25;
+}
+.pain-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--steel);
+}
+
+.help-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--mist);
+}
+.help-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 32px;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--mist);
+  align-items: start;
+}
+.help-num {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--brass);
+  letter-spacing: 0.02em;
+}
+.help-title {
+  font-size: clamp(20px, 1.8vw, 24px);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.015em;
+  margin-bottom: 10px;
+}
+.help-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--steel);
+  max-width: 680px;
+}
+
+/* Other industries grid */
+.other-industries .container { max-width: 1200px; }
+.other-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 48px;
+}
+.other-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 24px 28px;
+  background: var(--ice);
+  border: 1px solid var(--mist);
+  text-decoration: none;
+  color: inherit;
+  transition: all 300ms ease;
+}
+.other-card:hover {
+  background: var(--white);
+  border-color: var(--brass);
+  transform: translateY(-2px);
+}
+.other-num {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--brass);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+}
+.other-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+.other-arrow {
+  font-size: 18px;
+  color: var(--brass);
+  transition: transform 200ms ease;
+}
+.other-card:hover .other-arrow { transform: translateX(4px); }
+
+/* Mobile adjustments for industry pages */
+@media (max-width: 720px) {
+  .industry-hero { min-height: 70vh; }
+  .industry-hero-inner { padding: 120px 24px 56px; }
+  .breadcrumb { margin-bottom: 32px; font-size: 12px; }
+  .industry-hero-eyebrow { font-size: 14px; margin-bottom: 16px; }
+  .industry-hero-h1 { margin-bottom: 20px; }
+  .industry-hero-tag { font-size: 20px; margin-bottom: 16px; }
+  .industry-hero-sub { font-size: 15px; }
+  .industry-section-head { margin-bottom: 40px; }
+  .understanding-para { font-size: 16px; }
+  .pain-grid { grid-template-columns: 1fr; gap: 12px; }
+  .pain-card { padding: 28px 24px; }
+  .pain-num { font-size: 28px; margin-bottom: 16px; }
+  .pain-title { font-size: 18px; }
+  .help-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 28px 0;
+  }
+  .help-num { font-size: 15px; margin-bottom: 4px; }
+  .other-grid { grid-template-columns: 1fr; gap: 10px; }
+}
+
 /* ====== MOBILE DRAWER ====== */
 .mobile-drawer {
   position: fixed;
